@@ -1,0 +1,12 @@
+#include <iostream> // Libreria para manejar mensajes cout y cin
+
+using namespace std; // Maneja la salida y la entrada standard
+
+int main() // inicio del algoritmo
+{
+    cout<< "Bolivianos el hado propicio"<<endl;
+    cout<< "coronó nuestros votos y anhelo"<<endl;
+    cout<< "es ya libre, ya libre este suelo"<<endl;
+    cout<< "ya cesó su servil condición."<<endl;
+    return 0; // no devuelve nada
+}
