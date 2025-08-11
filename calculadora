@@ -1,0 +1,14 @@
+Algoritmo Calculadora
+	Escribir "ingrese el primer numero"
+	Leer A
+	Escribir "ingresa el segundo numero"
+	Leer B
+	C <- A+B
+	Escribir "el resultado de la suma es:" C
+	D <- A-B
+	Escribir " el resultado de la resta es" D
+	E <- A*B
+	Escribir "el resultado de la multiplicacion es:" E
+	F <- A/B
+	Escribir "el resultado de la division es:" F
+	FinAlgoritmo
