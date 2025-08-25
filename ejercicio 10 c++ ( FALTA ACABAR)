@@ -1,0 +1,41 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+    
+int main() {
+    int H1, H2, M1, M2, S1, S2
+    int TS1, TS2, DF
+    int DFH, DFM, DFS
+    cout<<"ingresa la hora inicial(0-23): ";
+    cin>>H1;
+    while (H1<0 \H1>23)
+    cout<<"ingresa la hora nuevamente: ";
+    cin>>H1;
+    
+    cout<<"ingresa el minuto inicial(0-59): ";
+    cin>>M1;
+    while (M1<0 \M1>59)
+    cout<<"ingresa la hora nuevamente: ";
+    cin>>M1;
+    
+    cout<<"ingresa el segundo inicial(0-59): ";
+    cin>>S1;
+    while (S1<0 \S1>59)
+    cout<<"ingresa la hora nuevamente: ";
+    cin>>S1;
+    
+    cout<<"ingresa la hora final(0-23): ";
+    cin>>H2;
+    while (H2<0 \H2>23)
+    cout<<"ingresa la hora nuevamente: ";
+    cin>>H2;
+    return 0;
+    
+    cout<<"ingresa el minuto final(0-59): ";
+    cin>>M2;
+    while (M2<0 \M2>59)
+    cout<<"ingresa la hora nuevamente: ";
+    cin>>M2;
+}
