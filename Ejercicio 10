@@ -1,0 +1,50 @@
+Algoritmo DiferenciDeHora
+	Definir H1,M1,S1,H2,M2,S2 Como Entero
+	Definir TS1,TS2,DF Como Entero
+	Definir DFH,DFM,DFS Como Entero
+	Escribir 'ingresa la hora inicial(0-23): '
+	Leer H1
+	Mientras H1>23 Hacer
+		Escribir 'ingresa la hora nuevamente: '
+		Leer H1
+	FinMientras
+	Escribir 'ingresa el minuto incial (0-59): '
+	Leer M1
+	Mientras M1>23 Hacer
+		Escribir 'ingresa la hora nuevamente: '
+		Leer HM
+	FinMientras
+	Escribir 'ingresa el segundo incial (0-59): '
+	Leer S1
+	Mientras S1>23 Hacer
+		Escribir 'ingresa la hora nuevamente: '
+		Leer S1
+	FinMientras
+	Escribir 'ingresa la hora final (o-23): '
+	Leer H2
+	Mientras H2>23 Hacer
+		Escribir 'ingresa la hora nuevamente: '
+		Leer H2
+	FinMientras
+	Escribir 'ingresa el minuto final (0-59): '
+	Leer M2
+	Mientras M2>23 Hacer
+		Escribir 'ingresa la hora nuevamente: '
+		Leer M2
+	FinMientras
+	Escribir 'ingresa el segundo final (0-59): '
+	Leer S2
+	Mientras S2>23 Hacer
+		Escribir 'ingresa la hora nuevamente: '
+		Leer S2
+	FinMientras
+	TS1 <- (H1*3600)+(M1*60)+S1
+	TS2 <- (H2*3600)+(M2*60)+S2
+	DF <- TS2-TS1
+	DFH <- trunc(DF/3600)
+	DF <- DF MOD 3600
+	DFM <- trunc(DF/60)
+	DFS <- DF MOD 60
+	Escribir 'diferencia: ',DFH,' Hr:',DFM,' Min:',DFS,' Seg'
+FinAlgoritmo
+
