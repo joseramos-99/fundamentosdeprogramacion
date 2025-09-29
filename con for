@@ -1,0 +1,22 @@
+
+#include <iostream>
+
+using namespace std;
+int main()
+{
+	int i, n, factorial;
+	// validar las entradas
+	do{
+		cout << "dame el valor de n: ";
+		cin >> n;
+	} while (n < 0);
+
+	// garbage in garbaje out 
+
+	factorial = 1; //acumulador del producto
+	for (i = 1; i <= n; i++) {
+		factorial = factorial * i;
+	}
+	cout << "el factorial de " << n << " es " << factorial << endl;
+	return 0;
+}
