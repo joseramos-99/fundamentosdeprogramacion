@@ -1,0 +1,25 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int N;
+    cout << "Ingrese un número entero: ";
+    cin >> N;
+
+    int ContadorPares = 0;
+
+    
+    while (N > 0) {
+        int digito = N % 10;
+
+        if (digito % 2 == 0) {
+            ContadorPares++;
+        }
+
+        N = N / 10;
+    }
+
+    cout << "Cantidad de dígitos pares: " << ContadorPares << endl;
+
+    return 0;
+}
