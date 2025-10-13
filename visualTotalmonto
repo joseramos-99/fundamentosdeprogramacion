@@ -1,0 +1,16 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+    int montoCompra, mt,bono, t;
+    double p = 0.01, d;
+    do {
+        cout << "Ingresa el monto de la compra: ";
+        cin >> montoCompra;
+    } while (montoCompra < 0);
+    if (montoCompra > 300)
+        bono = montoCompra * 0.10;
+    else
+        bono = 0.0; 
+    cout << "El total de la compra:  " << montoCompra << endl;
+}
