@@ -1,0 +1,411 @@
+ Ejercicio 1 - POTEN
+// Calcula x elevado a la potencia y
+
+#include <iostream>
+#include <cmath>       // para pow()
+#include <iomanip>     // para setprecision()
+
+using namespace std;
+
+// Función que calcula la potencia de x^y
+double POTEN(double x, double y) {
+    return pow(x, y);
+}
+
+int main() {
+    double x, y;
+    cout << "Ingrese el valor de x: ";
+    cin >> x;
+    cout << "Ingrese el valor de y: ";
+    cin >> y;
+
+    double resultado = POTEN(x, y);
+
+    cout << fixed << setprecision(4);
+    cout << "El resultado de " << x << "^" << y << " es: " << resultado << endl;
+
+    return 0;
+}
+
+
+Ejercicio 2 - FAC
+// Calcula el factorial de un número entero positivo
+
+#include <iostream>
+#include <iomanip>   // para setprecision()
+
+using namespace std;
+
+// Función que calcula el factorial de un número
+long double FAC(int n) {
+    long double factorial = 1;
+
+    if (n < 0) {
+        cout << "Error: no existe el factorial de un número negativo." << endl;
+        return 0;
+    }
+
+    for (int i = 1; i <= n; i++) {
+        factorial *= i;
+    }
+
+    return factorial;
+}
+
+int main() {
+    int n;
+    cout << "Ingrese un número entero positivo: ";
+    cin >> n;
+
+    cout << fixed << setprecision(0);
+    cout << "El factorial de " << n << " es: " << FAC(n) << endl;
+
+    return 0;
+}
+
+
+Ejercicio 3 
+// Calcula la suma de la serie: S = x^1/1! + x^2/2! + ... + x^N/N!
+
+#include <iostream>
+#include <cmath>      // para pow()
+#include <iomanip>    // para setprecision()
+
+using namespace std;
+
+// Función para calcular el factorial
+long double factorial(int n) {
+    long double f = 1;
+    for (int i = 2; i <= n; i++)
+        f *= i;
+    return f;
+}
+
+// Función para calcular la serie
+long double serie(long double x, int N) {
+    long double S = 0;
+    for (int k = 1; k <= N; k++) {
+        S += pow(x, k) / factorial(k);
+    }
+    return S;
+}
+
+int main() {
+    long double x;
+    int N;
+
+    cout << "Ingrese el valor de x: ";
+    cin >> x;
+    cout << "Ingrese el valor de N: ";
+    cin >> N;
+
+    cout << fixed << setprecision(10);
+    cout << "El resultado de la serie es: " << serie(x, N) << endl;
+
+    return 0;
+}
+
+
+Ejercicio 4 
+// Calcula S = x^1/1! - x^3/3! + x^5/5! - ... hasta N
+
+#include <iostream>
+#include <cmath>      // para pow()
+#include <iomanip>    // para setprecision()
+
+using namespace std;
+
+// Función que calcula el factorial
+long double factorial(int n) {
+    long double f = 1;
+    for (int i = 2; i <= n; i++)
+        f *= i;
+    return f;
+}
+
+// Función que calcula la serie
+long double serie(long double x, int N) {
+    long double S = 0;
+    int signo = 1; // alterna entre + y -
+
+    for (int k = 1; k <= N; k += 2) {
+        S += signo * (pow(x, k) / factorial(k));
+        signo = -signo; // cambia el signo en cada paso
+    }
+
+    return S;
+}
+
+int main() {
+    long double x;
+    int N;
+
+    cout << "Ingrese el valor de x: ";
+    cin >> x;
+    cout << "Ingrese el valor de N: ";
+    cin >> N;
+
+    cout << fixed << setprecision(10);
+    cout << "El resultado de la serie es: " << serie(x, N) << endl;
+
+    return 0; 
+}
+ejercio 5 
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+using namespace std;
+
+bool resolver(double A,double B,double C,double D,double E,double F,double &x,double &y) {
+    double det = A * E - B * D;
+    if (fabs(det) < 1e-10) return false;
+    x = (-C * E - B * (-F)) / det;
+    y = (A * (-F) - (-C) * D) / det;
+    return true;
+}
+
+int main() {
+    double A,B,C,D,E,F,x,y;
+    cout << "Ingrese A B C D E F: ";
+    cin >> A >> B >> C >> D >> E >> F;
+    if (resolver(A,B,C,D,E,F,x,y)) {
+        cout << fixed << setprecision(4);
+        cout << "x = " << x << "  y = " << y << endl;
+    } else cout << "No hay solución única\n";
+    return 0;
+}
+
+6.-
+#include <iostream>
+#include <string>
+using namespace std;
+
+int normaliza(int a){ return (a<100)?((a<=30)?2000+a:1900+a):a; }
+string mes(int m){
+    string nombres[]={"","Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"};
+    return (m>=1 && m<=12)?nombres[m]:"Mes inválido";
+}
+string literal(int d,int m,int a){
+    a = normaliza(a);
+    return to_string(d)+" de "+mes(m)+" de "+to_string(a);
+}
+
+int main(){
+    int d,m,a; 
+    cout<<"Ingrese dia mes año: ";
+    cin>>d>>m>>a;
+    cout<<literal(d,m,a)<<endl;
+    return 0;
+}
+
+7.-
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+long double COMBI(int n,int r){
+    if(r<0 || r>n) return 0;
+    r=min(r,n-r);
+    long double num=1,den=1;
+    for(int i=1;i<=r;i++){ num*=n-r+i; den*=i; }
+    return num/den;
+}
+
+int main(){
+    int n,r;
+    cout<<"Ingrese n y r: ";
+    cin>>n>>r;
+    cout<<fixed<<setprecision(0)<<COMBI(n,r)<<endl;
+    return 0;
+}
+
+8.-
+#include <iostream>
+#include <cmath>
+#include <iomanip>
+using namespace std;
+
+int main(){
+    double a,b,c;
+    cout<<"Ingrese a, b, c: ";
+    cin>>a>>b>>c;
+    double disc = b*b - 4*a*c;
+    cout<<fixed<<setprecision(4);
+    if(disc>0){
+        cout<<"x1 = "<<(-b+sqrt(disc))/(2*a)<<endl;
+        cout<<"x2 = "<<(-b-sqrt(disc))/(2*a)<<endl;
+    } else if(disc==0){
+        cout<<"Raíz doble: "<<-b/(2*a)<<endl;
+    } else {
+        double re=-b/(2*a), im=sqrt(-disc)/(2*a);
+        cout<<"x1 = "<<re<<" + "<<im<<"i"<<endl;
+        cout<<"x2 = "<<re<<" - "<<im<<"i"<<endl;
+    }
+    return 0;
+}
+
+9.-
+#include <iostream>
+#include <string>
+using namespace std;
+
+long long bin2dec(string bin){
+    long long val=0;
+    for(char c:bin){
+        val = val*2 + (c-'0');
+    }
+    return val;
+}
+
+int main(){
+    string bin;
+    cout<<"Ingrese número binario: ";
+    cin>>bin;
+    cout<<"Decimal: "<<bin2dec(bin)<<endl;
+    return 0;
+}
+
+
+10.-
+#include <iostream>
+#include <string>
+using namespace std;
+
+string romano(int n){
+    pair<int,string> mapa[]={{1000,"M"},{900,"CM"},{500,"D"},{400,"CD"},{100,"C"},
+                             {90,"XC"},{50,"L"},{40,"XL"},{10,"X"},{9,"IX"},{5,"V"},
+                             {4,"IV"},{1,"I"}};
+    string s;
+    for(auto &p:mapa) while(n>=p.first){ s+=p.second; n-=p.first; }
+    return s;
+}
+
+int main(){
+    int n;
+    cout<<"Ingrese número (1-3999): ";
+    cin>>n;
+    cout<<"Romano: "<<romano(n)<<endl;
+    return 0;
+}
+
+11.-
+#include <iostream>
+#include <string>
+#include <iomanip>
+using namespace std;
+
+string unidades[]={"","uno","dos","tres","cuatro","cinco","seis","siete","ocho","nueve"};
+
+string decenas(int n){
+    if(n<10) return unidades[n];
+    if(n<20){
+        string v[]={"diez","once","doce","trece","catorce","quince","dieciseis","diecisiete","dieciocho","diecinueve"};
+        return v[n-10];
+    }
+    string d[]={"","","veinte","treinta","cuarenta","cincuenta","sesenta","setenta","ochenta","noventa"};
+    int dec=n/10, uni=n%10;
+    if(uni==0) return d[dec];
+    return d[dec]+" y "+unidades[uni];
+}
+
+string literal(int n){
+    if(n==0) return "cero";
+    if(n<100) return decenas(n);
+    if(n<1000){
+        string c[]={"","ciento","doscientos","trescientos","cuatrocientos","quinientos","seiscientos","setecientos","ochocientos","novecientos"};
+        int cen=n/100, resto=n%100;
+        if(n==100) return "cien";
+        return c[cen]+" "+decenas(resto);
+    }
+    if(n<10000){
+        int mil=n/1000, resto=n%1000;
+        string pref=(mil==1)?"mil":unidades[mil]+" mil";
+        if(resto==0) return pref;
+        return pref+" "+literal(resto);
+    }
+    return "";
+}
+
+int main(){
+    double monto;
+    cout<<"Ingrese monto (0-9999.99): ";
+    cin>>monto;
+    int enteros=int(monto);
+    int centavos=int((monto-enteros)*100+0.5);
+    cout<<literal(enteros)<<" "<<setw(2)<<setfill('0')<<centavos<<"/100 bolivianos"<<endl;
+    return 0;
+}
+
+12.-
+#include <iostream>
+using namespace std;
+
+bool bisiesto(int a){ return (a%400==0)||(a%4==0 && a%100!=0); }
+
+bool valida(int d,int m,int a){
+    int md[]={0,31,28,31,30,31,30,31,31,30,31,30,31};
+    if(m==2 && bisiesto(a)) md[2]=29;
+    if(m<1||m>12||d<1||d>md[m]) return false;
+    return true;
+}
+
+int main(){
+    int d,m,a;
+    cout<<"Ingrese dia mes año: ";
+    cin>>d>>m>>a;
+    if(valida(d,m,a)) cout<<"Fecha válida\n";
+    else cout<<"Fecha inválida\n";
+    return 0;
+}
+
+13.-
+#include <iostream>
+#include <cmath>
+#include <iomanip>
+using namespace std;
+
+double redondear(double R,int n){
+    double f=pow(10,n);
+    return round(R*f)/f;
+}
+
+int main(){
+    double R; int n;
+    cout<<"Ingrese número y decimales: ";
+    cin>>R>>n;
+    cout<<fixed<<setprecision(n)<<redondear(R,n)<<endl;
+    return 0;
+}
+
+14.-
+#include <iostream>
+using namespace std;
+
+bool bisiesto(int y){ return (y%400==0)||(y%4==0&&y%100!=0); }
+
+int diasMes(int m,int y){
+    int md[]={31,28,31,30,31,30,31,31,30,31,30,31};
+    if(m==2 && bisiesto(y)) return 29;
+    return md[m-1];
+}
+
+int diasDesdeInicio(int d,int m,int a){
+    int total=0;
+    for(int i=1;i<a;i++) total+= bisiesto(i)?366:365;
+    for(int i=1;i<m;i++) total+=diasMes(i,a);
+    total+=d;
+    return total;
+}
+
+int main(){
+    int d1,m1,a1,d2,m2,a2;
+    cout<<"Ingrese fecha 1 (d m a): ";
+    cin>>d1>>m1>>a1;
+    cout<<"Ingrese fecha 2 (d m a): ";
+    cin>>d2>>m2>>a2;
+    int dias1=diasDesdeInicio(d1,m1,a1);
+    int dias2=diasDesdeInicio(d2,m2,a2);
+    cout<<"Días transcurridos: "<<abs(dias2-dias1)<<endl;
+    return 0;
+}
+
