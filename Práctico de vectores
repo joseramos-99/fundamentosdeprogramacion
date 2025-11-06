@@ -1,0 +1,362 @@
+1.-
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    int n;
+    cout << "Ingrese el tamaño del vector: ";
+    cin >> n;
+    vector<float> A(n), B(n), C(n);
+    cout << "Ingrese los elementos del vector A:\n";
+    for (int i = 0; i < n; i++) cin >> A[i];
+    cout << "Ingrese los elementos del vector B:\n";
+    for (int i = 0; i < n; i++) cin >> B[i];
+
+    for (int i = 0; i < n; i++) C[i] = A[i] + B[i];
+
+    cout << "La suma de los vectores es:\n";
+    for (float x : C) cout << x << " ";
+    return 0;
+}
+2.-
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    int n;
+    cout << "Ingrese el tamaño del vector: ";
+    cin >> n;
+    vector<float> A(n), B(n), C(n);
+    cout << "Ingrese los elementos de A:\n";
+    for (int i = 0; i < n; i++) cin >> A[i];
+    cout << "Ingrese los elementos de B:\n";
+    for (int i = 0; i < n; i++) cin >> B[i];
+
+    for (int i = 0; i < n; i++) C[i] = A[i] - B[i];
+
+    cout << "La resta de los vectores es:\n";
+    for (float x : C) cout << x << " ";
+    return 0;
+}
+3.-
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    int n;
+    cout << "Ingrese el tamaño de los vectores: ";
+    cin >> n;
+    vector<float> A(n), B(n);
+    cout << "Ingrese los elementos de A:\n";
+    for (int i = 0; i < n; i++) cin >> A[i];
+    cout << "Ingrese los elementos de B:\n";
+    for (int i = 0; i < n; i++) cin >> B[i];
+
+    float producto = 0;
+    for (int i = 0; i < n; i++) producto += A[i] * B[i];
+
+    cout << "El producto escalar es: " << producto;
+    return 0;
+}
+4.-
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    int n;
+    float esc;
+    cout << "Ingrese el tamaño del vector: ";
+    cin >> n;
+    vector<float> A(n), C(n);
+    cout << "Ingrese los elementos de A:\n";
+    for (int i = 0; i < n; i++) cin >> A[i];
+    cout << "Ingrese el escalar: ";
+    cin >> esc;
+
+    for (int i = 0; i < n; i++) C[i] = A[i] * esc;
+
+    cout << "El vector resultante es:\n";
+    for (float x : C) cout << x << " ";
+    return 0;
+}
+5.-
+#include <iostream>
+#include <vector>
+#include <cmath>
+using namespace std;
+
+int main() {
+    int n;
+    cout << "Ingrese el tamaño del vector: ";
+    cin >> n;
+    vector<float> A(n);
+    cout << "Ingrese los elementos:\n";
+    for (int i = 0; i < n; i++) cin >> A[i];
+    float suma = 0;
+    for (float x : A) suma += x * x;
+    cout << "La magnitud del vector es: " << sqrt(suma);
+    return 0;
+}
+6.-
+#include <iostream>
+#include <vector>
+#include <cmath>
+using namespace std;
+
+int main() {
+    int n;
+    cout << "Ingrese el tamaño del vector: ";
+    cin >> n;
+    vector<float> A(n), U(n);
+    cout << "Ingrese los elementos del vector:\n";
+    for (int i = 0; i < n; i++) cin >> A[i];
+    float suma = 0;
+    for (float x : A) suma += x * x;
+    float mag = sqrt(suma);
+    for (int i = 0; i < n; i++) U[i] = A[i] / mag;
+    cout << "El vector unitario es:\n";
+    for (float x : U) cout << x << " ";
+    return 0;
+}
+7.-
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    int n;
+    cout << "Ingrese el tamaño del vector: ";
+    cin >> n;
+    vector<float> A(n);
+    cout << "Ingrese los elementos:\n";
+    for (int i = 0; i < n; i++) cin >> A[i];
+    float suma = 0;
+    for (float x : A) suma += x;
+    cout << "La suma de los elementos es: " << suma;
+    return 0;
+}
+8.-
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    int n;
+    cout << "Ingrese el tamaño del vector: ";
+    cin >> n;
+    vector<float> A(n);
+    cout << "Ingrese los elementos:\n";
+    for (int i = 0; i < n; i++) cin >> A[i];
+    float suma = 0;
+    for (float x : A) suma += x;
+    cout << "El promedio de los elementos es: " << suma / n;
+    return 0;
+}
+9.-
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    vector<float> A(3), B(3), C(3);
+    cout << "Ingrese los 3 componentes del vector A:\n";
+    for (int i = 0; i < 3; i++) cin >> A[i];
+    cout << "Ingrese los 3 componentes del vector B:\n";
+    for (int i = 0; i < 3; i++) cin >> B[i];
+
+    C[0] = A[1]*B[2] - A[2]*B[1];
+    C[1] = A[2]*B[0] - A[0]*B[2];
+    C[2] = A[0]*B[1] - A[1]*B[0];
+
+    cout << "El producto vectorial es:\n";
+    for (float x : C) cout << x << " ";
+    return 0;
+}
+10.-
+#include <iostream>
+#include <vector>
+#include <cmath>
+using namespace std;
+
+int main() {
+    int n;
+    cout << "Ingrese el tamaño: ";
+    cin >> n;
+    vector<float> A(n), B(n);
+    cout << "Ingrese A:\n";
+    for (int i = 0; i < n; i++) cin >> A[i];
+    cout << "Ingrese B:\n";
+    for (int i = 0; i < n; i++) cin >> B[i];
+
+    float dot = 0, magA = 0, magB = 0;
+    for (int i = 0; i < n; i++) {
+        dot += A[i]*B[i];
+        magA += A[i]*A[i];
+        magB += B[i]*B[i];
+    }
+
+    float ang = acos(dot / (sqrt(magA)*sqrt(magB)));
+    cout << "El ángulo entre A y B (radianes): " << ang;
+    return 0;
+}
+11.-
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    vector<float> A(3), B(3), C(3);
+    cout << "Ingrese los 3 componentes del vector A:\n";
+    for (int i = 0; i < 3; i++) cin >> A[i];
+    cout << "Ingrese los 3 componentes del vector B:\n";
+    for (int i = 0; i < 3; i++) cin >> B[i];
+
+    C[0] = A[1]*B[2] - A[2]*B[1];
+    C[1] = A[2]*B[0] - A[0]*B[2];
+    C[2] = A[0]*B[1] - A[1]*B[0];
+
+    cout << "El producto cruzado A × B es:\n";
+    for (float x : C) cout << x << " ";
+    return 0;
+}
+12.-
+#include <iostream>
+#include <vector>
+#include <cmath>
+using namespace std;
+
+int main() {
+    int n;
+    cout << "Ingrese el tamaño de los vectores: ";
+    cin >> n;
+    vector<float> A(n), B(n);
+    cout << "Ingrese los elementos de A:\n";
+    for (int i = 0; i < n; i++) cin >> A[i];
+    cout << "Ingrese los elementos de B:\n";
+    for (int i = 0; i < n; i++) cin >> B[i];
+
+    float dot = 0, magA = 0, magB = 0;
+    for (int i = 0; i < n; i++) {
+        dot += A[i] * B[i];
+        magA += A[i] * A[i];
+        magB += B[i] * B[i];
+    }
+
+    float angulo = acos(dot / (sqrt(magA) * sqrt(magB)));
+    cout << "El ángulo entre A y B (radianes) es: " << angulo;
+    return 0;
+}
+13.-
+#include <iostream>
+#include <vector>
+#include <cmath>
+using namespace std;
+
+int main() {
+    int n;
+    cout << "Ingrese el tamaño de los vectores: ";
+    cin >> n;
+    vector<float> A(n), B(n);
+    cout << "Ingrese los elementos de A:\n";
+    for (int i = 0; i < n; i++) cin >> A[i];
+    cout << "Ingrese los elementos de B:\n";
+    for (int i = 0; i < n; i++) cin >> B[i];
+
+    float dot = 0, magB = 0;
+    for (int i = 0; i < n; i++) {
+        dot += A[i] * B[i];
+        magB += B[i] * B[i];
+    }
+
+    float proy = dot / sqrt(magB);
+    cout << "La proyección de A sobre B es: " << proy;
+    return 0;
+}
+14.-
+#include <iostream>
+#include <vector>
+#include <cmath>
+using namespace std;
+
+int main() {
+    int n;
+    cout << "Ingrese el tamaño del vector: ";
+    cin >> n;
+    vector<float> A(n);
+    cout << "Ingrese los elementos del vector:\n";
+    for (int i = 0; i < n; i++) cin >> A[i];
+
+    float suma = 0;
+    for (float x : A) suma += x * x;
+    float mag = sqrt(suma);
+
+    cout << "El vector normalizado es:\n";
+    for (int i = 0; i < n; i++) cout << A[i] / mag << " ";
+    return 0;
+}
+15.-
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    int n;
+    cout << "Ingrese el tamaño de los vectores: ";
+    cin >> n;
+    vector<float> A(n), B(n), C(n);
+    cout << "Ingrese los elementos de A:\n";
+    for (int i = 0; i < n; i++) cin >> A[i];
+    cout << "Ingrese los elementos de B:\n";
+    for (int i = 0; i < n; i++) cin >> B[i];
+
+    for (int i = 0; i < n; i++) C[i] = 0.6 * A[i] + 0.4 * B[i];
+
+    cout << "La suma ponderada es:\n";
+    for (float x : C) cout << x << " ";
+    return 0;
+}
+16.-
+#include <iostream>
+#include <vector>
+#include <cmath>
+using namespace std;
+
+int main() {
+    int n;
+    cout << "Ingrese el tamaño de los vectores: ";
+    cin >> n;
+    vector<float> A(n), B(n), C(n);
+    cout << "Ingrese los elementos de A:\n";
+    for (int i = 0; i < n; i++) cin >> A[i];
+    cout << "Ingrese los elementos de B:\n";
+    for (int i = 0; i < n; i++) cin >> B[i];
+
+    for (int i = 0; i < n; i++) C[i] = pow(A[i] - B[i], 2);
+
+    cout << "La diferencia cuadrática es:\n";
+    for (float x : C) cout << x << " ";
+    return 0;
+}
+17.-
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    int n;
+    cout << "Ingrese el tamaño del vector: ";
+    cin >> n;
+    vector<float> A(n), D(n);
+    cout << "Ingrese los elementos de A:\n";
+    for (int i = 0; i < n; i++) cin >> A[i];
+
+    D = A;
+
+    cout << "El vector copiado es:\n";
+    for (float x : D) cout << x << " ";
+    return 0;
+}
