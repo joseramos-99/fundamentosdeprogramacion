@@ -1,0 +1,80 @@
+#include <iostream>
+#include "stdlib.h"
+#include <string>
+#define MAX 100 
+
+using namespace std;
+
+
+ // prototipos 
+void cargar(int vec[], int n);
+void mostrar(int vec[], int n);
+void burbuja(int vec[], int m);
+void cargar2(string nombres[], int notas[], int tamano);
+
+
+void main()
+{
+	int v[MAX];
+	int opcion;
+	int tam;
+	// Menu
+	do {
+		cout << "Ingrese el tamaño del vector: ";
+		cin >> tam;
+	} while (tam<0 || tam > MAX);
+		//Desplegar las opciones
+		cout << "\t\t Menu \n";
+		cout << "\t\t ==== \n";
+		cout << "1. Cargar\n";
+		cout << "2. Mostrar\n";
+		cout << "3. Ordenar\n";
+		cout << "4. Buscar\n";
+		cout << "5. Promedio\n";
+		cout << "0. Salir\n";
+		cout << "Opcion: ";
+		cin >> opcion;
+		// Condicional multiple
+		switch (opcion) {
+		case 1:
+			cargar(v, tam);
+			break;
+		case 2:
+			cargar(v, tam);
+			break;
+		case 3:
+			cargar(v, tam);
+			break;
+		case 0: cout << "Saliendo del Menu";
+			break;
+		default: cout << "ERROR de opcion";
+			break;
+		}
+		system("cls"); 
+	  while (opcion != 0);
+
+}
+
+void cargar(int vec[]; int n) {
+	for (int i = 0; i < n; i++) {
+		cout << "Ingrese el dato" << i << ": ";
+		cin >> vec[i];
+	}
+}
+void mostrar(int vec[], int n) {
+		for (int i = 0; i < n; i++)
+			cout << vec[i];
+}
+
+void burbuja(int vec[], int m) {
+	int temp;
+	for (int i = 0; i < m; i++)
+		for (int j = 0; j < m; j++) {
+			if (vec[i] > vec[j]) {
+				temp = vec[i];
+				vec[i] = vec[j];
+				vec[j] = vec[i];
+				vec[j] = temp;
+			}
+		}
+}
